@@ -29,10 +29,11 @@ async def upload_summarize_persist(file: UploadFile = File(...), db: Session = D
         text = await in_file.read()
     
     summary = summarize(text)
+    title = file.filename.replace('.txt', '').replace('_', ' ')
     
-    # note = Note(filename=file.filename, summary=summary)
-    # db.add(note)
-    # db.commit()
-    # db.refresh(note)
+    note = Note(filename=file.filename, summary=summary, title=title, content=text)
+    db.add(note)
+    db.commit()
+    db.refresh(note)
         
     return {summary}
