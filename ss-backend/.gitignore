@@ -1,1 +1,6 @@
 .venv
+__pycache__
+.env
+app/__pycache__/main.cpython-311.pyc
+test.db
+temp
