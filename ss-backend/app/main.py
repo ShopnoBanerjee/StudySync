@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from app.api.endpoints import notes
+import os
+import logging
 
 app = FastAPI()
 app.include_router(notes.router, prefix ="/api")
